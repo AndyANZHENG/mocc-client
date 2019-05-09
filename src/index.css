@@ -1,0 +1,13 @@
+body,
+html {
+  height: 100%;
+}
+#root {
+  height: 100%;
+}
+
+body {
+  /* min-height: 400px; */
+  margin-bottom: 50px;
+  clear: both;
+}
