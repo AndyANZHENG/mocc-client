@@ -15,7 +15,7 @@ function Landing(props) {
   const [showTab, setShowTab] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [content, setContent] = useState("Hero");
-  const theme = useTheme();
+  // const theme = useTheme();
   const classes = useStyles();
   const BottomLabels = ["1", "2", "3"];
   // const TabContainer =
@@ -87,8 +87,8 @@ function Landing(props) {
         index={showTab}
         onChangeIndex={handleChangeIndex}
       > */}
-      {/* <Hero /> */}
-      <Areas />
+      <Hero />
+      {/* <Areas /> */}
       {/* </SwipeableViews> */}
 
       {/* <Tab

@@ -10,7 +10,6 @@ const useStyles = makeStyles(theme => ({
   },
   [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
     areaContent: {
-      height: "100%",
       marginTop: 56
     }
   }
