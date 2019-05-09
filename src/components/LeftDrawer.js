@@ -63,24 +63,23 @@ function DrawList(props) {
   const classes = useStyles();
   const items = props.links.map(link => (
     <ListItemLink
+      onClick={props.handleCloseMenu}
       icon={<Icon className={clsx(classes.icon, link.icon)} color="primary" />}
-      key={link.id}
+      key={link.label}
       to={link.url}
       primary={link.label}
     />
   ));
 
   return (
-    <BrowserRouter>
-      <div
-        className={classes.list}
-        role="presentation"
-        onClick={props.handleCloseMenu}
-        onKeyDown={props.handleCloseMenu}
-      >
-        <List>{items}</List>
-      </div>
-    </BrowserRouter>
+    <div
+      className={classes.list}
+      role="presentation"
+      onClick={props.handleCloseMenu}
+      onKeyDown={props.handleCloseMenu}
+    >
+      <List>{items}</List>
+    </div>
   );
 }
 
@@ -100,7 +99,7 @@ export default props => {
         </IconButton>
       </div>
 
-      <DrawList links={props.links} />
+      <DrawList handleCloseMenu={props.handleCloseMenu} links={props.links} />
     </Drawer>
   );
 };
