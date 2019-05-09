@@ -1,5 +1,4 @@
-# 2019.5.8 Evening TODO
+# 2019.5.10 morning
 
-- origanize main section
-- make area list page
-- make area detail page
+- areaDetail component
+- load area data
