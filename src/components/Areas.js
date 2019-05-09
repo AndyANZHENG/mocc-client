@@ -1,30 +1,28 @@
 import React from "react";
+import { Container, Typography, Grid, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
+import AreaButtons from "./AreaButtons";
 
 const useStyles = makeStyles(theme => ({
-  root: {
-    padding: theme.spacing(3, 2)
+  areaContent: {
+    height: "100%",
+    marginTop: 64
+  },
+  [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
+    areaContent: {
+      height: "100%",
+      marginTop: 56
+    }
   }
 }));
 
-function PaperSheet() {
+export default () => {
   const classes = useStyles();
-
   return (
-    <div>
-      <Paper className={classes.root}>
-        <Typography variant="h5" component="h3">
-          This is a sheet of paper.
-        </Typography>
-        <Typography component="p">
-          Paper can be used to build surface or other elements for your
-          application.
-        </Typography>
-      </Paper>
+    <div className={classes.areaContent}>
+      {/* <Container maxWidth="md"> */}
+      <AreaButtons />
+      {/* </Container> */}
     </div>
   );
-}
-
-export default PaperSheet;
+};

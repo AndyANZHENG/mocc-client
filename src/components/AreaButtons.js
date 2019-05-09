@@ -2,22 +2,31 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
+import PolarGallery from "../img/areas/polar_gallery.png";
+import RemoteSensing from "../img/areas/remote_sensing_environmental.png";
+import ResearchInno from "../img/areas/research_innovation.png";
+import GreenGallery from "../img/areas/green_gallery.png";
 
 const images = [
   {
-    url: "/static/images/grid-list/breakfast.jpg",
-    title: "Breakfast",
-    width: "40%"
+    url: PolarGallery,
+    title: "Polar Gallery",
+    width: "50%"
   },
   {
-    url: "/static/images/grid-list/burgers.jpg",
-    title: "Burgers",
-    width: "30%"
+    url: RemoteSensing,
+    title: "Remote Sensing and Environmental Monitoring",
+    width: "50%"
   },
   {
-    url: "/static/images/grid-list/camera.jpg",
-    title: "Camera",
-    width: "30%"
+    url: ResearchInno,
+    title: "Research and Innovation at CUHK",
+    width: "50%"
+  },
+  {
+    url: GreenGallery,
+    title: "The Hong Kong Jockey Club Green Gallery",
+    width: "50%"
   }
 ];
 
@@ -29,11 +38,13 @@ const useStyles = makeStyles(theme => ({
     width: "100%"
   },
   image: {
+    // maxWidth: "100%",
+    // maxHeight: "100%",
     position: "relative",
     height: 200,
     [theme.breakpoints.down("xs")]: {
-      width: "100% !important", // Overrides inline-style
-      height: 100
+      width: "100% !important" // Overrides inline-style
+      // height: 100
     },
     "&:hover, &$focusVisible": {
       zIndex: 1,
@@ -44,7 +55,8 @@ const useStyles = makeStyles(theme => ({
         opacity: 0
       },
       "& $imageTitle": {
-        border: "4px solid currentColor"
+        border: "4px solid currentColor",
+        color: theme.palette.primary.main
       }
     }
   },
@@ -76,7 +88,7 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.common.black,
-    opacity: 0.4,
+    opacity: 0.5,
     transition: theme.transitions.create("opacity")
   },
   imageTitle: {
@@ -95,7 +107,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-function ButtonBases() {
+export default () => {
   const classes = useStyles();
 
   return (
@@ -113,7 +125,9 @@ function ButtonBases() {
           <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${image.url})`
+              backgroundImage: `url(${image.url})`,
+              backgroundSize: "contain",
+              backgroundRepeat: "no-repeat"
             }}
           />
           <span className={classes.imageBackdrop} />
@@ -132,6 +146,4 @@ function ButtonBases() {
       ))}
     </div>
   );
-}
-
-export default ButtonBases;
+};
