@@ -23,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 export default props => {
   const { match } = props;
   const classes = useStyles();
-  console.log(match.path);
+
   return (
     <div className={classes.areaContent}>
       <Paper className={classes.paper}>

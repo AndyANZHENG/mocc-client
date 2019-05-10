@@ -2,6 +2,8 @@ import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
+import Entrance from "../img/areas/entrance.png";
+import ThreeMost from "../img/areas/three_most.png";
 import PolarGallery from "../img/areas/polar_gallery.png";
 import RemoteSensing from "../img/areas/remote_sensing.png";
 import ResearchInno from "../img/areas/research_innovation.png";
@@ -10,26 +12,38 @@ import { Link as RouterLink } from "react-router-dom";
 
 const images = [
   {
+    url: Entrance,
+    title: "博物館入口",
+    width: "50%",
+    link: "Entrance"
+  },
+  {
     url: PolarGallery,
-    title: "Polar Gallery",
+    title: "極地廊",
     width: "50%",
     link: "PolarGallery"
   },
   {
+    url: ThreeMost,
+    title: "三極區",
+    width: "50%",
+    link: "ThreeMost"
+  },
+  {
     url: RemoteSensing,
-    title: "Remote Sensing and Environmental Monitoring",
+    title: "衛星遙感及環境監測",
     width: "50%",
     link: "RemoteSensing"
   },
   {
     url: ResearchInno,
-    title: "Research and Innovation at CUHK",
+    title: "中文大學創新研究",
     width: "50%",
     link: "ResearchInno"
   },
   {
     url: GreenGallery,
-    title: "The Hong Kong Jockey Club Green Gallery",
+    title: "香港賽馬會環保天地",
     width: "50%",
     link: "GreenGallery"
   }
@@ -61,7 +75,8 @@ const useStyles = makeStyles(theme => ({
       },
       "& $imageTitle": {
         border: "4px solid currentColor",
-        color: theme.palette.primary.main
+        backgroundColor: theme.palette.primary.main
+        // color: theme.palette.primary.main
       }
     }
   },
@@ -93,7 +108,7 @@ const useStyles = makeStyles(theme => ({
     top: 0,
     bottom: 0,
     backgroundColor: theme.palette.common.black,
-    opacity: 0.5,
+    opacity: 0.7,
     transition: theme.transitions.create("opacity")
   },
   imageTitle: {
