@@ -1,9 +1,14 @@
 import React, { Fragment, useState } from "react";
 import ReactDOM from "react-dom";
-// import Landing from "./Hero";
-// import Areas from "./"
 import { Header, withBase } from "./layouts";
-import { Hero, LeftDrawer, Areas, ProtectedRoute, Login } from "./components";
+import {
+  Hero,
+  LeftDrawer,
+  Areas,
+  ProtectedRoute,
+  Login,
+  AreaDetail
+} from "./components";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
@@ -18,7 +23,7 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const [showLeftDrawer, setShowLeftDrawer] = useState(false);
   const [showTab, setShowTab] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   // const [content, setContent] = useState("Hero");
 
   const toggleMenu = () => {
@@ -90,8 +95,7 @@ function App() {
         <ProtectedRoute
           isLoggedIn={isLoggedIn}
           path="/areas"
-          exact
-          component={withRouter(Areas)}
+          component={Areas}
         />
         {/* <ProtectedRoute
           isLoggedIn={isLoggedIn}
@@ -100,8 +104,8 @@ function App() {
           component={withRouter(Areas)}
         /> */}
 
-        <Route path="/" exact component={withRouter(Hero)} />
-        <Route path="/login" exact component={withRouter(Login)} />
+        <Route path="/" exact component={Hero} />
+        <Route path="/login" exact component={Login} />
       </Switch>
     </BrowserRouter>
 

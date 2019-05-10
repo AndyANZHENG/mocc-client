@@ -2,6 +2,8 @@ import React from "react";
 import { Container, Typography, Grid, Button, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AreaButtons from "./AreaButtons";
+import AreaDetail from "./AreaDetail";
+import { Route, Switch } from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
   areaContent: {
@@ -18,13 +20,19 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default () => {
+export default props => {
+  const { match } = props;
   const classes = useStyles();
+  console.log(match.path);
   return (
     <div className={classes.areaContent}>
       <Paper className={classes.paper}>
         {/* <Container maxWidth="md"> */}
-        <AreaButtons />
+        <Switch>
+          <Route path={`${match.path}/:area`} component={AreaDetail} />
+          <Route exact path={match.path} component={AreaButtons} />
+        </Switch>
+
         {/* </Container> */}
       </Paper>
     </div>

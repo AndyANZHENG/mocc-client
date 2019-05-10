@@ -4,5 +4,6 @@ import GMap from "./GMap";
 import Areas from "./Areas";
 import ProtectedRoute from "./ProtectedRoute";
 import Login from "./Login";
+import AreaDetail from "./AreaDetail";
 
-export { Hero, LeftDrawer, GMap, Areas, ProtectedRoute, Login };
+export { Hero, LeftDrawer, GMap, Areas, ProtectedRoute, Login, AreaDetail };

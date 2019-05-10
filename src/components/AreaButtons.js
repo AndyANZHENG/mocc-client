@@ -3,30 +3,35 @@ import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import PolarGallery from "../img/areas/polar_gallery.png";
-import RemoteSensing from "../img/areas/remote_sensing_environmental.png";
+import RemoteSensing from "../img/areas/remote_sensing.png";
 import ResearchInno from "../img/areas/research_innovation.png";
 import GreenGallery from "../img/areas/green_gallery.png";
+import { Link as RouterLink } from "react-router-dom";
 
 const images = [
   {
     url: PolarGallery,
     title: "Polar Gallery",
-    width: "50%"
+    width: "50%",
+    link: "PolarGallery"
   },
   {
     url: RemoteSensing,
     title: "Remote Sensing and Environmental Monitoring",
-    width: "50%"
+    width: "50%",
+    link: "RemoteSensing"
   },
   {
     url: ResearchInno,
     title: "Research and Innovation at CUHK",
-    width: "50%"
+    width: "50%",
+    link: "ResearchInno"
   },
   {
     url: GreenGallery,
     title: "The Hong Kong Jockey Club Green Gallery",
-    width: "50%"
+    width: "50%",
+    link: "GreenGallery"
   }
 ];
 
@@ -107,8 +112,13 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export default () => {
+const Link = React.forwardRef((props, ref) => (
+  <RouterLink {...props} innerRef={ref} />
+));
+
+export default props => {
   const classes = useStyles();
+  const { match } = props;
 
   return (
     <div className={classes.root}>
@@ -121,6 +131,8 @@ export default () => {
           style={{
             width: image.width
           }}
+          component={Link}
+          to={`${match.url}/${image.link}`}
         >
           <span
             className={classes.imageSrc}

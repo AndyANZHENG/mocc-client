@@ -32,12 +32,13 @@ const rawTheme = createMuiTheme({
     }
   },
   typography: {
-    fontFamily: "'Montserrat', sans-serif",
+    fontFamily: "'Noto Sans TC', sans-serif;'Montserrat', sans-serif",
     fontSize: 14,
-    fontWeightLight: 400, // Work Sans
-    fontWeightRegular: 500, // Work Sans
-    fontWeightMedium: 700, // Roboto Condensed
-    fontFamilySecondary: "'Montserrat', sans-serif"
+    fontWeightLight: 300,
+    fontWeightRegular: 400,
+    fontWeightMedium: 500,
+    fontFamilySecondary: "'Noto Sans TC', sans-serif;'Montserrat', sans-serif",
+    fontFamilyChinese: "'Noto Sans TC', sans-serif"
   }
 });
 
@@ -75,12 +76,12 @@ const theme = {
     h3: {
       ...rawTheme.typography.h3,
       ...fontHeader,
-      fontSize: 42
+      fontSize: 38
     },
     h4: {
       ...rawTheme.typography.h4,
       ...fontHeader,
-      fontSize: 36
+      fontSize: 30
     },
     h5: {
       ...rawTheme.typography.h5,

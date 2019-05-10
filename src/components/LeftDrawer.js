@@ -10,7 +10,7 @@ import {
 import { makeStyles } from "@material-ui/core/styles";
 import IconButton from "@material-ui/core/IconButton";
 import ArrowBackIcon from "@material-ui/icons/ArrowBack";
-import { Link as RouterLink, BrowserRouter } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 import clsx from "clsx";
 import { loadCSS } from "fg-loadcss/src/loadCSS";
 
