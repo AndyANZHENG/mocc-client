@@ -3,7 +3,7 @@ import ReactDOM from "react-dom";
 // import Landing from "./Hero";
 // import Areas from "./"
 import { Header, withBase } from "./layouts";
-import { Hero, LeftDrawer, Areas } from "./components";
+import { Hero, LeftDrawer, Areas, ProtectedRoute, Login } from "./components";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const [showLeftDrawer, setShowLeftDrawer] = useState(false);
   const [showTab, setShowTab] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [content, setContent] = useState("Hero");
 
   const toggleMenu = () => {
@@ -86,13 +86,23 @@ function App() {
         handleCloseMenu={toggleMenu}
       />
       <Header handleOpenMenu={toggleMenu} />
-      {/* <Route path="/login" component={Login} /> */}
       <Switch>
-        <Route path="/areas" exact component={withRouter(Areas)} />
-        <Route path="/" exact component={withRouter(Hero)} />
-      </Switch>
+        <ProtectedRoute
+          isLoggedIn={isLoggedIn}
+          path="/areas"
+          exact
+          component={withRouter(Areas)}
+        />
+        {/* <ProtectedRoute
+          isLoggedIn={isLoggedIn}
+          path="/areas/:area"
+          exact
+          component={withRouter(Areas)}
+        /> */}
 
-      {/* <Landing /> */}
+        <Route path="/" exact component={withRouter(Hero)} />
+        <Route path="/login" exact component={withRouter(Login)} />
+      </Switch>
     </BrowserRouter>
 
     // <Landing />

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Typography, Grid, Button } from "@material-ui/core";
+import { Container, Typography, Grid, Button, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AreaButtons from "./AreaButtons";
 
@@ -7,6 +7,9 @@ const useStyles = makeStyles(theme => ({
   areaContent: {
     height: "100%",
     marginTop: 64
+  },
+  paper: {
+    padding: theme.spacing(0, 0)
   },
   [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
     areaContent: {
@@ -19,9 +22,11 @@ export default () => {
   const classes = useStyles();
   return (
     <div className={classes.areaContent}>
-      {/* <Container maxWidth="md"> */}
-      <AreaButtons />
-      {/* </Container> */}
+      <Paper className={classes.paper}>
+        {/* <Container maxWidth="md"> */}
+        <AreaButtons />
+        {/* </Container> */}
+      </Paper>
     </div>
   );
 };
