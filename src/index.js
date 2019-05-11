@@ -13,6 +13,10 @@ import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+// import firebase from "./firebase";
+
+// console.log(firebase.name);
+// console.log(firebase.database());
 
 const useStyles = makeStyles(theme => ({
   swipeable: {

@@ -21,11 +21,11 @@ const useStyles = makeStyles(theme => ({
     backgroundSize: "cover"
   },
   heroButtons: {
-    marginTop: theme.spacing(8)
+    marginTop: theme.spacing(5)
   },
   [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
     heroContent: {
-      padding: theme.spacing(16, 0, 0)
+      padding: theme.spacing(14, 0, 0)
     }
   }
 }));
