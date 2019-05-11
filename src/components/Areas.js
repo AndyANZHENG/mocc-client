@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Container, Typography, Grid, Button, Paper } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import AreaButtons from "./AreaButtons";
@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: 64
   },
   paper: {
-    padding: theme.spacing(0, 0)
+    padding: theme.spacing(3, 2),
   },
   [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
     areaContent: {
@@ -21,12 +21,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default props => {
+  useEffect(() => window.scrollTo(0, 0));
   const { match } = props;
   const classes = useStyles();
 
   return (
     <div className={classes.areaContent}>
-      <Paper className={classes.paper}>
+      {/* <Paper className={classes.paper}> */}
         {/* <Container maxWidth="md"> */}
         <Switch>
           <Route path={`${match.path}/:area`} component={AreaDetail} />
@@ -34,7 +35,7 @@ export default props => {
         </Switch>
 
         {/* </Container> */}
-      </Paper>
+      {/* </Paper> */}
     </div>
   );
 };

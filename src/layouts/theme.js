@@ -100,11 +100,13 @@ const theme = {
     body1: {
       ...rawTheme.typography.body2,
       fontWeight: rawTheme.typography.fontWeightRegular,
-      fontSize: 16
+      fontSize: 16,
+      lineHeight: 1.5
     },
     body2: {
       ...rawTheme.typography.body1,
-      fontSize: 14
+      fontSize: 14,
+      lineHeight: 1.5
     }
   }
 };

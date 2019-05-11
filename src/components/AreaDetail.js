@@ -2,25 +2,16 @@ import React, { Fragment } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper, Container } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
-import Data from "../data";
+import Data from "../response2";
 import Box from "@material-ui/core/Box";
 
 const useStyles = makeStyles(theme => ({
-  areaContent: {
-    height: "100%",
-    marginTop: 64
+  areaDetail: {
+    padding: theme.spacing(3, 2),
   },
-  paper: {
-    padding: theme.spacing(3, 2)
+  paperDetail: {
+    padding: theme.spacing(3, 2),
   },
-  // content: {
-  //   fontFamily: theme.typography.fontFamilyChinese
-  // },
-  [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
-    areaContent: {
-      marginTop: 56
-    }
-  }
 }));
 
 const areasData = {};
@@ -56,17 +47,37 @@ export default props => {
             ? ""
             : item.info.map(subinfo => {
                 return subinfo.notes.map(note => {
-                  return note;
+                  return (
+                      <Fragment>
+                        > {note}<br/>
+                      </Fragment>
+                    )
                 });
               })}
         </Typography>
+        <Box mt={1}>
+          <Typography component="p" variant="body1">
+            Extra Infomation: <br/>
+            {item.extra_info === undefined
+              ? " undefined extra info"
+              : item.extra_info.map(subinfo => {
+                  return subinfo.notes.map(note => {
+                    return (
+                        <Fragment>
+                          - {note}<br/>
+                        </Fragment>
+                      )
+                  });
+                })}
+          </Typography>
+        </Box>
       </Fragment>
     );
   });
 
   return (
-    <div className={classes.areaContent}>
-      <Paper className={classes.paper}>
+    <div className={classes.areaDetail}>
+      <Paper className={classes.paperDetail}>
         {label}
         {content}
       </Paper>
