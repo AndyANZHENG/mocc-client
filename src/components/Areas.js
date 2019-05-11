@@ -11,7 +11,7 @@ const useStyles = makeStyles(theme => ({
     marginTop: 64
   },
   paper: {
-    padding: theme.spacing(3, 2),
+    padding: theme.spacing(3, 2)
   },
   [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
     areaContent: {
@@ -21,20 +21,19 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default props => {
-  useEffect(() => window.scrollTo(0, 0));
   const { match } = props;
   const classes = useStyles();
 
   return (
     <div className={classes.areaContent}>
       {/* <Paper className={classes.paper}> */}
-        {/* <Container maxWidth="md"> */}
-        <Switch>
-          <Route path={`${match.path}/:area`} component={AreaDetail} />
-          <Route exact path={match.path} component={AreaButtons} />
-        </Switch>
+      {/* <Container maxWidth="md"> */}
+      <Switch>
+        <Route path={`${match.path}/:area`} component={AreaDetail} />
+        <Route exact path={match.path} component={AreaButtons} />
+      </Switch>
 
-        {/* </Container> */}
+      {/* </Container> */}
       {/* </Paper> */}
     </div>
   );
