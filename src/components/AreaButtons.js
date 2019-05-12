@@ -10,7 +10,7 @@ import ResearchInno from "../img/areas/research_innovation.png";
 import GreenGallery from "../img/areas/green_gallery.png";
 import { Link as RouterLink } from "react-router-dom";
 
-const images = [
+const info_images = [
   {
     url: Entrance,
     title: "博物館入口",
@@ -49,6 +49,34 @@ const images = [
   }
 ];
 
+const learning_images = [
+  {
+    url: PolarGallery,
+    title: "極地廊",
+    width: "50%",
+    link: "PolarGalleryQuiz"
+  },
+  {
+    url: RemoteSensing,
+    title: "衛星遙感及環境監測",
+    width: "50%",
+    link: "RemoteSensingQuiz"
+  },
+  {
+    url: ResearchInno,
+    title: "中文大學創新研究",
+    width: "50%",
+    link: "ResearchInnoQuiz"
+  },
+  {
+    url: GreenGallery,
+    title: "香港賽馬會環保天地",
+    width: "50%",
+    link: "GreenGalleryQuiz"
+  }
+];
+
+
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -57,13 +85,10 @@ const useStyles = makeStyles(theme => ({
     width: "100%"
   },
   image: {
-    // maxWidth: "100%",
-    // maxHeight: "100%",
     position: "relative",
     height: 200,
     [theme.breakpoints.down("xs")]: {
       width: "100% !important" // Overrides inline-style
-      // height: 100
     },
     "&:hover, &$focusVisible": {
       zIndex: 1,
@@ -76,7 +101,6 @@ const useStyles = makeStyles(theme => ({
       "& $imageTitle": {
         border: "4px solid currentColor",
         backgroundColor: theme.palette.primary.main
-        // color: theme.palette.primary.main
       }
     }
   },
@@ -133,7 +157,9 @@ const Link = React.forwardRef((props, ref) => (
 
 export default props => {
   const classes = useStyles();
-  const { match } = props;
+  const { match, type } = props;
+  console.log(type);
+  const images = type === "info" ? info_images : learning_images;
 
   return (
     <div className={classes.root}>

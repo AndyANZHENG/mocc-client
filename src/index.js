@@ -7,12 +7,13 @@ import {
   Areas,
   ProtectedRoute,
   Login,
-  AreaDetail
+  LearningCenter
 } from "./components";
 import "./index.css";
 import * as serviceWorker from "./serviceWorker";
 import { BrowserRouter, Route, withRouter, Switch } from "react-router-dom";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
+import { SnackbarProvider } from 'notistack';
 
 // import firebase from "./firebase";
 
@@ -28,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const [showLeftDrawer, setShowLeftDrawer] = useState(false);
   const [showTab, setShowTab] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   // const [content, setContent] = useState("Hero");
 
   const toggleMenu = () => {
@@ -39,23 +40,37 @@ function App() {
     }
   };
 
-  function handleChangeIndex(index) {
-    setShowTab(index);
+  const toggleLogin = () => {
+    if (isLoggedIn === true) {
+      setIsLoggedIn(false);
+    } else {
+      setIsLoggedIn(true);
+    }
   }
 
-  function handleChange(event, newValue) {
-    setShowTab(newValue);
-  }
+  // function handleChangeIndex(index) {
+  //   setShowTab(index);
+  // }
+
+  // function handleChange(event, newValue) {
+  //   setShowTab(newValue);
+  // }
 
   const publicLinks = [
     {
-      id: 0,
+      // id: 0,
+      url: "/",
+      label: "Home",
+      icon: "fas fa-home"
+    },
+    {
+      // id: 0,
       url: "/learning-center",
       label: "Learning Center",
       icon: "fas fa-user-graduate"
     },
     {
-      id: 1,
+      // id: 1,
       url: "/login",
       label: "Log In",
       icon: "fab fa-google"
@@ -88,8 +103,13 @@ function App() {
     }
   ];
 
+  const AreasWithProps = props => {
+    return 
+  }
+
   return (
     <BrowserRouter>
+    <SnackbarProvider maxSnack={3} autoHideDuration={2000}>
       <LeftDrawer
         links={isLoggedIn ? privateLinks : publicLinks}
         isOpen={showLeftDrawer}
@@ -100,6 +120,7 @@ function App() {
         <ProtectedRoute
           isLoggedIn={isLoggedIn}
           path="/areas"
+          // render={props => <Areas toggleMenu={toggleMenu} {...props}/>}
           component={Areas}
         />
         {/* <ProtectedRoute
@@ -108,13 +129,12 @@ function App() {
           exact
           component={withRouter(Areas)}
         /> */}
-
+        <Route path="/learning-center" component={LearningCenter} />
+        <Route path="/login" exact render={props => <Login isLoggedIn={isLoggedIn} toggleLogin={toggleLogin} {...props}/>}/>
         <Route path="/" exact component={Hero} />
-        <Route path="/login" exact component={Login} />
       </Switch>
+      </SnackbarProvider>
     </BrowserRouter>
-
-    // <Landing />
   );
 }
 

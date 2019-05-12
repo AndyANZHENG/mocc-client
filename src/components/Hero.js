@@ -1,7 +1,8 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { Container, Typography, Grid, Button } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import bg from "../img/bg-2.jpg";
+import Header from "../layouts/Header";
 
 const useStyles = makeStyles(theme => ({
   icon: {
@@ -31,8 +32,13 @@ const useStyles = makeStyles(theme => ({
 }));
 
 export default props => {
+  const { toggleMenu } = props;
   const classes = useStyles();
   return (
+    <Fragment>
+
+    {/* <Header handleOpenMenu={toggleMenu} title="導覽資料" /> */}
+
     <div className={classes.heroContent}>
       <Container maxWidth="md">
         <Typography
@@ -65,5 +71,6 @@ export default props => {
         </div>
       </Container>
     </div>
+    </Fragment>
   );
 };
