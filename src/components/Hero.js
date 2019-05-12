@@ -1,7 +1,9 @@
 import React, { Fragment } from "react";
 import { Container, Typography, Grid, Button } from "@material-ui/core";
+import Box from "@material-ui/core/Box";
 import { makeStyles } from "@material-ui/core/styles";
 import bg from "../img/bg-2.jpg";
+import mocc from "../img/areas/mocc.png";
 import Header from "../layouts/Header";
 
 const useStyles = makeStyles(theme => ({
@@ -24,6 +26,10 @@ const useStyles = makeStyles(theme => ({
   heroButtons: {
     marginTop: theme.spacing(5)
   },
+  responsive: {
+    maxWidth: "100%",
+    height: "auto"
+  },
   [`@media (max-width: ${theme.breakpoints.values.sm}px)`]: {
     heroContent: {
       padding: theme.spacing(14, 0, 0)
@@ -41,30 +47,30 @@ export default props => {
 
     <div className={classes.heroContent}>
       <Container maxWidth="md">
+      <Box mb={4}>
         <Typography
-          component="h1"
-          variant="h2"
+          component="h2"
+          variant="h3"
           align="center"
           color="textPrimary"
           gutterBottom
         >
-          MOCC Learning Assistant
+          <img src={mocc} className={classes.responsive}/>
         </Typography>
+        </Box>
         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-          Something short and leading about the collection below—its contents,
-          the creator, etc. Make it short and sweet, but not too short so folks
-          don&apos;t simply skip over it entirely.
+          導覽助手 | 學習中心
         </Typography>
         <div className={classes.heroButtons}>
           <Grid container spacing={2} justify="center">
             <Grid item>
               <Button variant="contained" color="primary">
-                Check Offcial Site
+                官方網頁
               </Button>
             </Grid>
             <Grid item>
               <Button variant="outlined" color="primary">
-                Learning Center
+                學習中心
               </Button>
             </Grid>
           </Grid>

@@ -14,20 +14,18 @@ export default props => {
                     {content.title}
                   </Typography>
                 </Box>
-                <Typography component="p">
                   {content.infos === undefined
                     ? ""
                     : content.infos.map((info,idx) => {
                         return (
-                          <Fragment>
-                                            <Box mt={1} mb={1}>
-
-                          <Typography key={idx} variant="h5" component="h5">
-                            {info.subtitle === undefined
-                            ? ""
-                            : info.subtitle
-                            }
-                          </Typography>
+                          <Fragment key={idx} >
+                          <Box mt={1} mb={1}>
+                            <Typography variant="h5" component="h5">
+                              {info.subtitle === undefined
+                              ? ""
+                              : info.subtitle
+                              }
+                            </Typography>
                           </Box>
                           {
                             info.notes.map((note, idx) => {
@@ -37,15 +35,12 @@ export default props => {
                                     <br />
                                   </Fragment>
                                 );
-      
                               })
                           }
                           </Fragment>
                         )
                       })}
-                </Typography>
                 <Box mt={1}>
-                  <Typography component="p" variant="body1">
                     {content.extra_infos === undefined ? (
                       ""
                     ) : (
@@ -55,17 +50,30 @@ export default props => {
                     )}
                     {content.extra_infos === undefined
                       ? ""
-                      : content.extra_infos.map(extra_info => {
-                          return extra_info.notes.map((note, idx) => {
+                      : content.extra_infos.map((extra_info,idx) => {
+                          return (
+                          <Fragment key={idx}>
+                            <Box mt={1} mb={1}>
+                              <Typography variant="h5" component="h5">
+                                {extra_info.subtitle === undefined
+                                ? ""
+                                : extra_info.subtitle
+                                }
+                              </Typography>
+                            </Box>
+                          {
+                            extra_info.notes.map((note, idx) => {
                             return (
                               <Fragment key={idx}>
                                 > {note}
                                 <br />
                               </Fragment>
                             );
-                          });
+                          })
+                          }
+                          </Fragment>
+                          )
                         })}
-                  </Typography>
                 </Box>
               </Fragment>
             );

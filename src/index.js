@@ -29,7 +29,7 @@ const useStyles = makeStyles(theme => ({
 function App() {
   const [showLeftDrawer, setShowLeftDrawer] = useState(false);
   const [showTab, setShowTab] = useState(0);
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  const [isLoggedIn, setIsLoggedIn] = useState(true);
   // const [content, setContent] = useState("Hero");
 
   const toggleMenu = () => {
@@ -60,19 +60,19 @@ function App() {
     {
       // id: 0,
       url: "/",
-      label: "Home",
+      label: "首頁",
       icon: "fas fa-home"
     },
     {
       // id: 0,
       url: "/learning-center",
-      label: "Learning Center",
+      label: "學習中心",
       icon: "fas fa-user-graduate"
     },
     {
       // id: 1,
       url: "/login",
-      label: "Log In",
+      label: "登入",
       icon: "fab fa-google"
     }
   ];
@@ -80,32 +80,28 @@ function App() {
     {
       // id: 0,
       url: "/",
-      label: "Home",
+      label: "首頁",
       icon: "fas fa-home"
     },
     {
       // id: 0,
       url: "/learning-center",
-      label: "Learning Center",
+      label: "學習中心",
       icon: "fas fa-user-graduate"
     },
     {
       // id: 1,
       url: "/areas",
-      label: "Tour Guide Info",
+      label: "導覽資料",
       icon: "fas fa-file-alt"
     },
     {
       // id: 2,
       url: "/logout",
-      label: "Log out",
+      label: "登出",
       icon: "fas fa-sign-out-alt"
     }
   ];
-
-  const AreasWithProps = props => {
-    return 
-  }
 
   return (
     <BrowserRouter>

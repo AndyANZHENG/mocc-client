@@ -2,10 +2,12 @@ import React, { useState, useEffect } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import { Paper } from "@material-ui/core";
 import Typography from "@material-ui/core/Typography";
+import Container from "@material-ui/core/Container";
 import Box from "@material-ui/core/Box";
 import axios from "axios";
 import { Route, Switch } from "react-router-dom";
 import AreaDetailContent from "./AreaDetailContent";
+import CircularProgress from '@material-ui/core/CircularProgress';
 
 const APIurl = "https://l9pl3y2q7z.sse.codesandbox.io/api/data";
 
@@ -15,7 +17,11 @@ const useStyles = makeStyles(theme => ({
   },
   paperDetail: {
     padding: theme.spacing(3, 2)
-  }
+  },
+  progress: {
+    margin: "0 auto",
+    display: "block"
+  },
 }));
 
 export default props => {
@@ -49,7 +55,8 @@ export default props => {
           {details.data[area].label}
         </Typography>
       ) : (
-        "loading..."
+          <CircularProgress className={classes.progress} />        
+        // "" 
       )}
     </Box>
   );
@@ -68,7 +75,7 @@ export default props => {
           <Route path={match.path} render={props => <AreaDetailContent {...props} detail={details.data[area]}/>} />
         </Switch>
         :
-          "loading..."
+          ""
         }
       </Paper>
     </div>

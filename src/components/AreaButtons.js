@@ -54,25 +54,25 @@ const learning_images = [
     url: PolarGallery,
     title: "極地廊",
     width: "50%",
-    link: "PolarGalleryQuiz"
+    link: "quiz/PolarGallery"
   },
   {
     url: RemoteSensing,
     title: "衛星遙感及環境監測",
     width: "50%",
-    link: "RemoteSensingQuiz"
+    link: "quiz/RemoteSensing"
   },
   {
     url: ResearchInno,
     title: "中文大學創新研究",
     width: "50%",
-    link: "ResearchInnoQuiz"
+    link: "quiz/ResearchInno"
   },
   {
     url: GreenGallery,
     title: "香港賽馬會環保天地",
     width: "50%",
-    link: "GreenGalleryQuiz"
+    link: "quiz/GreenGallery"
   }
 ];
 
